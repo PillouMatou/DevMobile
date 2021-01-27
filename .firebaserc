@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ionic-m2gi": {
+      "hosting": {
+        "app": [
+          "ionic-m2gi"
+        ]
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  firebaseConfig : {
+  firebase : {
   apiKey: "AIzaSyAZlYWiHQxm3b0GXds3pxIMxrcbm_czJ9I",
   authDomain: "ionic-m2gi.firebaseapp.com",
   projectId: "ionic-m2gi",
