@@ -1,30 +1,39 @@
 import { Injectable } from '@angular/core';
-import {Todo} from '../models/todo';
-import {List} from '../models/list';
+import { List } from '../models/list';
+import { Todo } from '../models/todo';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListService {
+  public lists: List[];
 
-  constructor() { }
+  constructor() { 
+    this.lists = [];
+  }
 
-  private list: List[];
-  private listTodo: Todo[];
+  getAll(){
+    return this.lists;
+  }
 
-  getAll(): List[]{
-    return this.list;
+  getOne(id: string){
+    return Object.assign({}, this.lists.find(l => l.id === id));
   }
-  createList(newlist: List){
-    this.list.push(newlist);
+
+  create(list: List){
+    this.lists.push(list);
   }
-  getOne(id: string): List{
-    return this.list.find(l => l.id === id);
+
+  addTodo(todo: Todo, listId: string){
+    this.getOne(listId).todos.push(todo);
   }
-  createTodoInList(todo: Todo){
-    this.listTodo.push(todo);
+
+  deleteTodo(todo: Todo, listId: string){
+    const list = this.getOne(listId);
+    list.todos.splice(list.todos.indexOf(todo), 1);
   }
-  delete(list: Todo){
-    this.listTodo = this.listTodo.filter(l => l !== list);
+
+  delete(list){
+    this.lists.splice(this.lists.indexOf(list), 1);
   }
 }

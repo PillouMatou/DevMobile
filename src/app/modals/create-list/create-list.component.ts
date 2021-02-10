@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ListService} from '../../services/list.service';
+import { ModalController } from '@ionic/angular';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ListService } from 'src/app/services/list.service';
+import { List } from 'src/app/models/list';
 
 @Component({
   selector: 'app-create-list',
@@ -8,8 +11,32 @@ import {ListService} from '../../services/list.service';
 })
 export class CreateListComponent implements OnInit {
 
-  constructor(private listService: ListService) { }
+  newListForm: FormGroup;
 
-  ngOnInit() {}
+  constructor(private modalController: ModalController, private formBuilder: FormBuilder,
+    private listService: ListService) {
+   
+  }
+
+  ngOnInit(){
+    this.newListForm = this.formBuilder.group({
+      name: ['', [Validators.required, Validators.minLength(2)]],
+   })
+  }
+
+  dismissModal() {
+      this.modalController.dismiss(); 
+  }
+
+  createNewList(){
+    if(this.newListForm.valid){
+      this.listService.create(new List(this.newListForm.get('name').value));
+      this.dismissModal();
+    }
+  }
+
+  get errorControl() {
+    return this.newListForm.controls;
+  }
 
 }
