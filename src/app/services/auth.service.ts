@@ -8,13 +8,13 @@ import { Subject, BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
 
-  private user$: BehaviorSubject<firebase.default.User>;
+  private user$: BehaviorSubject<firebase.default.User>
 
-  constructor( private afAuth: AngularFireAuth,
-               private af: AngularFirestore ) {
+  constructor( private afAuth: AngularFireAuth, 
+    private af: AngularFirestore ) { 
       this.user$ = new BehaviorSubject(null);
-      this.afAuth.onAuthStateChanged(user =>
-        this.user$.next(user));
+      this.afAuth.onAuthStateChanged(user => 
+        this.user$.next(user))
     }
 
     getConnectedUser(){
@@ -31,11 +31,11 @@ export class AuthService {
 
   async register(email: string, password: string) {
     const cred = await this.afAuth.createUserWithEmailAndPassword(
-      email,
+      email, 
       password
       );
-
-    await cred.user.sendEmailVerification();
-    return cred.user;
+      
+      await cred.user.sendEmailVerification();
+      return cred.user;
   }
 }
