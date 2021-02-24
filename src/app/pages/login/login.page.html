@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Identifiez-vous</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Login</ion-label>
+    <ion-input inputmode="email" required="true"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Mot de passe</ion-label>
+    <ion-input required="true" type="password"></ion-input>
+  </ion-item>
+  <ion-button type="submit" expand="block" color="success" [routerLink]="['/home']">Valider</ion-button>
+</ion-content>
+
+<ion-content>
+  <ion-button type="submit" expand="block" [routerLink]="['/register']">Créer un compte</ion-button>
+  <ion-button type="submit" expand="block" [routerLink]="['/password-recovery']">Mot de passe oublié</ion-button>
+</ion-content>

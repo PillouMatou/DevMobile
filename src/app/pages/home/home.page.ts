@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { List } from '../models/list';
-import { ListService } from '../services/list.service';
+import { List } from '../../models/list';
+import { ListService } from '../../services/list.service';
 import { ModalController } from '@ionic/angular';
-import { CreateListComponent } from '../modals/create-list/create-list.component';
+import { CreateListComponent } from '../../modals/create-list/create-list.component';
 import { Router } from '@angular/router';
 
 @Component({

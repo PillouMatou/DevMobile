@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { CreateListComponent } from '../modals/create-list/create-list.component';
+import { CreateListComponent } from '../../modals/create-list/create-list.component';
 
 
 @NgModule({
