@@ -1,17 +1,24 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Créer un compte</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-item>
-    <ion-label position="floating">Login</ion-label>
-    <ion-input inputmode="email" required="true"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Mot de passe</ion-label>
-    <ion-input required="true" type="password"></ion-input>
-  </ion-item>
-  <ion-button type="submit" (click)="submit()" expand="block" color="success" [routerLink]="['/home']">Valider</ion-button>
+  <form [formGroup]="register" (ngSubmit)="registerForm()">
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <div class="text-danger" *ngIf="register.invalid && register.get('email').touched && register.get('email').errors">
+      <small *ngIf="register.get('email').errors.required">Le champ est requis</small>
+      <small *ngIf="register.get('email').errors.email">Adresse email invalide</small>
+    </div>
+    <ion-item>
+      <ion-label>Mot de passe</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <div class="text-danger"
+         *ngIf="register.invalid && register.get('password').touched && register.get('password').errors">
+      <small *ngIf="register.get('password').errors.required">Le champ est requis</small>
+    </div>
+    <ion-button [disabled]="register.invalid" color="secondary" expand="block" shape="round" fill="outline"
+                type="submit" large>
+      Créer un compte
+    </ion-button>
+  </form>
 </ion-content>

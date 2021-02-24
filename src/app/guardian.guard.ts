@@ -1,5 +1,5 @@
 import {Injectable, NgZone} from '@angular/core';
-import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router} from '@angular/router';
+import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '@angular/router';
 import {map} from 'rxjs/operators';
 import {AuthService} from './services/auth.service';
 
@@ -14,8 +14,8 @@ export class GuardianGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     return this.auth.getConnectedUser().pipe(map(
         (user: any) => {
-          if(!user || !user.emailVerified){
-            this.ngZone.run(() => this.route.navigate(['login']))
+          if (!user || !user.emailVerified){
+            this.ngZone.run(() => this.route.navigate(['login']));
           }
           return true;
         }
