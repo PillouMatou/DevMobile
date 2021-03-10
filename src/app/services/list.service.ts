@@ -30,23 +30,27 @@ export class ListService {
   }
 
   async create(list: List){
-    // @ts-ignore
-    await this.listsCollection.add({ name: list.name });
+    await this.listsCollection.doc(list.id).set({id: list.id, todos: list.todos, name: list.name });
+    console.log(list.id);
   }
 
   async delete(list){
     await this.listsCollection.doc<List>(list.id).delete();
   }
-  /*
-  addTodo(todo: Todo, listId: string){
-    this.getOne(listId).todos.push(todo);
+
+  async addTodo(todo: Todo, listId: string){
+    await this.listsCollection.doc<List>(listId).collection<Todo>('todos').add({
+      id: todo.id,
+      name: todo.name,
+      description: todo.description,
+      isDone: todo.isDone
+    });
   }
 
-  deleteTodo(todo: Todo, listId: string){
-    const list = this.getOne(listId);
-    list.todos.splice(list.todos.indexOf(todo), 1);
+  async deleteTodo(todo: Todo, listId: string){
+    await this.listsCollection.doc<List>(listId).collection<Todo>('Todo').doc<Todo>(todo.id).delete();
   }
-  */
+
   private convertSnapshotData<T>(actions) {
     return actions.map(a => {
       const data = a.payload.doc.data();
