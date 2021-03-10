@@ -48,7 +48,7 @@ export class ListService {
   }
 
   async deleteTodo(todo: Todo, listId: string){
-    await this.listsCollection.doc<List>(listId).collection<Todo>('Todo').doc<Todo>(todo.id).delete();
+    await this.listsCollection.doc<List>(listId).collection<Todo>('todos').doc<Todo>(todo.id).delete();
   }
 
   private convertSnapshotData<T>(actions) {
