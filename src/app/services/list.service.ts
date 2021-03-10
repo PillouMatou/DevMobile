@@ -37,7 +37,7 @@ export class ListService {
   async delete(list){
     await this.listsCollection.doc<List>(list.id).delete();
   }
-
+/*
   async addTodo(todo: Todo, listId: string){
     await this.listsCollection.doc<List>(listId).collection<Todo>('todos').add({
       id: todo.id,
@@ -50,7 +50,7 @@ export class ListService {
   async deleteTodo(todo: Todo, listId: string){
     await this.listsCollection.doc<List>(listId).collection<Todo>('Todo').doc<Todo>(todo.id).delete();
   }
-
+*/
   private convertSnapshotData<T>(actions) {
     return actions.map(a => {
       const data = a.payload.doc.data();
