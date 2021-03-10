@@ -5,7 +5,7 @@ export class Todo {
         this.description = description;
         this.isDone = false;
     }
-    
+
     id: string;
     name: string;
     description: string;
