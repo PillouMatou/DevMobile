@@ -14,3 +14,4 @@
 * rappels
 * accès appareil photo
 * identification Google
+* règle listes partagées : OK
