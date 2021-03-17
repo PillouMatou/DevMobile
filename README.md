@@ -13,3 +13,4 @@
 * faire des notifications
 * rappels
 * accès appareil photo
+* identification Google
