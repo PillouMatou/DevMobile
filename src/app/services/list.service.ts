@@ -3,6 +3,7 @@ import { List } from '../models/list';
 import { Todo } from '../models/todo';
 import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 import {map, switchMap} from 'rxjs/operators';
+import {AuthService} from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +11,18 @@ import {map, switchMap} from 'rxjs/operators';
 export class ListService {
   private listsCollection: AngularFirestoreCollection<List>;
 
-  constructor(private af: AngularFirestore) {
+  constructor(private af: AngularFirestore, private authService: AuthService) {
     this.listsCollection = this.af.collection('lists');
   }
 
   getAll(){
+    /*
     return this.listsCollection.snapshotChanges().pipe(
         map(actions => this.convertSnapshotData<List>(actions)));
+     */
+    // tslint:disable-next-line:max-line-length
+    return this.af.collection('lists', ref => ref.where('owners', 'array-contains', this.authService.user$.getValue().email)).snapshotChanges().pipe(
+      map(actions => this.convertSnapshotData<List>(actions)));
   }
 
   getOne(id: string){
@@ -30,7 +36,8 @@ export class ListService {
   }
 
   async create(list: List){
-    await this.listsCollection.doc(list.id).set({id: list.id, todos: list.todos, name: list.name });
+    list.owners.push(this.authService.user$.getValue().email);
+    await this.listsCollection.doc(list.id).set({owners: list.owners, id: list.id, todos: list.todos, name: list.name });
     console.log(list.id);
   }
 
