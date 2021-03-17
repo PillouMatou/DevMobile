@@ -9,3 +9,7 @@
 * case à cocher
   - isDone : true
   - isDone : false
+* ajouter une géolocalisation
+* faire des notifications
+* rappels
+* accès appareil photo
