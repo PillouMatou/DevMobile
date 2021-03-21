@@ -13,34 +13,31 @@ import {Observable} from 'rxjs';
 })
 export class ListDetailsPage implements OnInit {
   private list: Observable<List>;
-  private listsCollection: List;
+  listId: string;
+  listsCollection: List;
 
   constructor(private listService: ListService,
               private modalController: ModalController,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-  const listId = this.route.snapshot.paramMap.get('listId');
-  this.list = this.listService.getOne(listId);
-  this.list.subscribe(
-      (list: List) => {this.listsCollection = list; },
-      () => {console.log('petit soucis dans la page list-details'); },
-      () => {console.log('fini'); }
-  );
+  this.listId = this.route.snapshot.paramMap.get('listId');
+  this.list = this.listService.getOne(this.listId);
+  this.list.subscribe(c => {this.listsCollection = c; });
   }
 
   async openCreateModal(){
     const modal = await this.modalController.create({
       component: CreateTodoComponent,
       componentProps: {
-        listId: this.listsCollection.id
+        listId: this.listId
       }
     });
     return await modal.present();
   }
 
   delete(todo){
-    this.listService.deleteTodo(todo, this.listsCollection.id);
+    this.listService.deleteTodo(todo, this.listId);
   }
 
 }
