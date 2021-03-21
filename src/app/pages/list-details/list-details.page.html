@@ -1,3 +1,5 @@
+<ion-content [fullscreen]="true" id ='plop' *ngIf="list | async as obs; else loading">
+
 <ion-content>
   <ion-list>
     <!-- Sliding item with text options on both sides -->
@@ -15,3 +17,5 @@
     </ion-list>
   <ion-button class="bottom-btn" expand="block" fill="outline" (click)="openCreateModal()">Add a new todo</ion-button>
 </ion-content>
+</ion-content>
+<ng-template #loading></ng-template>
