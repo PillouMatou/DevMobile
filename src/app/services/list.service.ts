@@ -46,6 +46,7 @@ export class ListService {
   }
 
   async addTodo(todo: Todo, listId: string){
+    console.log('id todo', listId);
     await this.listsCollection.doc<List>(listId).collection<Todo>('todos').doc(todo.id).set({
       id: todo.id,
       name: todo.name,

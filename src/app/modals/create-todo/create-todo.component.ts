@@ -4,6 +4,7 @@ import { ListService } from 'src/app/services/list.service';
 import { ModalController } from '@ionic/angular';
 import { Todo } from 'src/app/models/todo';
 import { ActivatedRoute } from '@angular/router';
+import {List} from '../../models/list';
 
 @Component({
   selector: 'app-create-todo',
