@@ -16,12 +16,9 @@ export class ListService {
   }
 
   getAll(){
-    /*
-    return this.listsCollection.snapshotChanges().pipe(
-        map(actions => this.convertSnapshotData<List>(actions)));
-     */
-    // tslint:disable-next-line:max-line-length
-    return this.af.collection('lists', ref => ref.where('owners', 'array-contains', this.authService.user$.getValue().email)).snapshotChanges().pipe(
+    return this.af.collection('lists', ref => ref.where('owners', 'array-contains', this.authService.user$.getValue().email))
+        .snapshotChanges()
+        .pipe(
       map(actions => this.convertSnapshotData<List>(actions)));
   }
 
@@ -38,7 +35,7 @@ export class ListService {
   async create(list: List){
     list.owners.push(this.authService.user$.getValue().email);
     await this.listsCollection.doc(list.id).set({owners: list.owners, id: list.id, todos: list.todos, name: list.name });
-    console.log(list.id);
+    console.log('id list', list.id);
   }
 
   async delete(list){
