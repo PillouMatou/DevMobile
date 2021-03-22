@@ -30,20 +30,20 @@ this.route.subscribe(route => {
       const url = route.url;
       switch (url.split('/')[1]) {
         case 'home':
-          this.title = 'Home';
+          this.title = 'Listes';
           break;
         case 'login':
-          this.title = 'Login';
+          this.title = 'S\'identifier';
           break;
         case 'register':
-          this.title = 'Register';
+          this.title = 'S\'enregistrer';
           break;
         case 'mdp-retrieve':
-          this.title = 'Password Recovery';
+          this.title = 'Mot de passe oublié';
           break;
           case 'list-details':
             const list = this.listService.getOne(url.split('/')[2]);
-            this.title = 'todo list';
+            this.title = 'Détails liste';
             break;
         default:
           console.log(`Unknown url ${url}.`);
