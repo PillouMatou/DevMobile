@@ -4,6 +4,7 @@ import { ListService } from '../../services/list.service';
 import { ModalController } from '@ionic/angular';
 import { CreateListComponent } from '../../modals/create-list/create-list.component';
 import {Observable} from 'rxjs';
+import {CreateOwnersComponent} from '../../modals/create-owners/create-owners.component';
 
 @Component({
   selector: 'app-home',
@@ -29,6 +30,13 @@ export class HomePage implements OnInit {
   async openCreateModal(){
     const modal = await this.modalController.create({
       component: CreateListComponent,
+    });
+    return await modal.present();
+  }
+
+  async openCreateOwner(){
+    const modal = await this.modalController.create({
+      component: CreateOwnersComponent,
     });
     return await modal.present();
   }

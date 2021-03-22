@@ -14,6 +14,9 @@
         </ion-item>
 
         <ion-item-options side="end">
+          <ion-item-option (click)="openCreateOwner()">
+            <ion-icon slot="icon-only" name="person-add"></ion-icon>
+          </ion-item-option>
           <ion-item-option (click)="delete(list)" color="danger">
             <ion-icon slot="icon-only" name="trash"></ion-icon>
           </ion-item-option>
