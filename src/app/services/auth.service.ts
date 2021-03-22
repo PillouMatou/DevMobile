@@ -8,7 +8,7 @@ import { Subject, BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
 
-  private user$: BehaviorSubject<firebase.default.User>
+  user$: BehaviorSubject<firebase.default.User>
 
   constructor( private afAuth: AngularFireAuth, 
     private af: AngularFirestore ) { 

@@ -43,7 +43,7 @@ this.route.subscribe(route => {
           break;
           case 'list-details':
             const list = this.listService.getOne(url.split('/')[2]);
-            this.title = list && list.name;
+            this.title = 'todo list';
             break;
         default:
           console.log(`Unknown url ${url}.`);

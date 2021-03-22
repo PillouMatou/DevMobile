@@ -14,22 +14,22 @@ export class CreateListComponent implements OnInit {
   newListForm: FormGroup;
 
   constructor(private modalController: ModalController, private formBuilder: FormBuilder,
-    private listService: ListService) {
-   
+              private listService: ListService) {
+
   }
 
   ngOnInit(){
     this.newListForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
-   })
+   });
   }
 
   dismissModal() {
-      this.modalController.dismiss(); 
+      this.modalController.dismiss();
   }
 
   createNewList(){
-    if(this.newListForm.valid){
+    if (this.newListForm.valid){
       this.listService.create(new List(this.newListForm.get('name').value));
       this.dismissModal();
     }

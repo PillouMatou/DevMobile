@@ -1,11 +1,16 @@
+<ion-content [fullscreen]="true" id ='plop' *ngIf="list | async as obs; else loading">
+
 <ion-content>
   <ion-list>
     <!-- Sliding item with text options on both sides -->
-    <ion-item-sliding *ngFor="let todo of list?.todos">
+    <ion-item-sliding *ngFor="let todo of this.listsCollection.todos">
       <ion-item>
         <ion-label>{{ todo.name }}</ion-label>
       </ion-item>
-  
+
+      <ion-item-options side="start">
+        <ion-checkbox checked="false" color="success"></ion-checkbox>
+      </ion-item-options>
       <ion-item-options side="end">
         <ion-item-option (click)="delete(todo)" color="danger">
           <ion-icon slot="icon-only" name="trash"></ion-icon>
@@ -15,3 +20,5 @@
     </ion-list>
   <ion-button class="bottom-btn" expand="block" fill="outline" (click)="openCreateModal()">Add a new todo</ion-button>
 </ion-content>
+</ion-content>
+<ng-template #loading></ng-template>
