@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   public title: string;
   public user: firebase.default.User;
 
-  private route: Observable<import('/Users/MATOU/IdeaProjects/DevMobile/node_modules/@angular/router/router').Event>;
+  private route: Observable<import('D:/Documents/School/M2GI/Dev_Mobile/DevMobile/node_modules/@angular/router/router').Event>;
 
   constructor(private auth: AuthService , private router: Router, private listService: ListService) {
     this.route = this.router.events.pipe(filter(event => event instanceof NavigationEnd));
@@ -33,10 +33,10 @@ this.route.subscribe(route => {
           this.title = 'Listes';
           break;
         case 'login':
-          this.title = 'S\'identifier';
+          this.title = 'Se connecter';
           break;
         case 'register':
-          this.title = 'S\'enregistrer';
+          this.title = 'Créer un compte';
           break;
         case 'mdp-retrieve':
           this.title = 'Mot de passe oublié';

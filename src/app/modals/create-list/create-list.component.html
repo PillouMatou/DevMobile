@@ -1,30 +1,30 @@
 <ion-header translucent>
   <ion-toolbar>
-    <ion-title>Modal Content</ion-title>
+    <ion-title>Créer une nouvelle liste</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="dismissModal()">Close</ion-button>
+      <ion-button (click)="dismissModal()">Fermer</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content fullscreen>
   <form [formGroup]="newListForm" (ngSubmit)="createNewList()" novalidate>
     <ion-item lines="full">
-      <ion-label position="floating">Name</ion-label>
+      <ion-label position="floating">Titre</ion-label>
       <ion-input type="text" name="name" formControlName="name" required></ion-input>
     </ion-item>
     <ion-text color="danger" *ngIf="errorControl.name.touched && errorControl.name.errors?.required">
       <span>
-        This field is required
+        Ce champ est requis
       </span>
     </ion-text>
     <ion-text color="danger" *ngIf="errorControl.name.touched && errorControl.name.errors?.minlength">
       <span>
-        Minimum length 2
+        Taille minimum de 2 caractères requise
       </span>
     </ion-text>
     <ion-row>
       <ion-col>
-        <ion-button [disabled]="newListForm.invalid" type="submit" color="primary" expand="block">Submit</ion-button>
+        <ion-button [disabled]="newListForm.invalid" type="submit" color="primary" expand="block">Valider</ion-button>
       </ion-col>
     </ion-row>
   </form>
