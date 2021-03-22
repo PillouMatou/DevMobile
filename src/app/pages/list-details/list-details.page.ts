@@ -5,6 +5,7 @@ import { ListService } from 'src/app/services/list.service';
 import { List } from 'src/app/models/list';
 import { ActivatedRoute } from '@angular/router';
 import {Observable} from 'rxjs';
+import {Todo} from '../../models/todo';
 
 @Component({
   selector: 'app-list-details',
@@ -38,6 +39,12 @@ export class ListDetailsPage implements OnInit {
 
   delete(todo){
     this.listService.deleteTodo(todo, this.listId);
+  }
+
+  todoIsDoneChange(todo){
+    todo.isDone = !todo.isDone;
+    console.log(todo.isDone);
+    this.listService.addTodo(todo, this.listId);
   }
 
 }

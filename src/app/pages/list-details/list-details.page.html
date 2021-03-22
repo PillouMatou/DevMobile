@@ -9,7 +9,7 @@
       </ion-item>
 
       <ion-item-options side="start">
-        <ion-checkbox checked="false" color="success"></ion-checkbox>
+        <ion-checkbox checked="{{todo.isDone}}" color="success" (ionChange)="todoIsDoneChange(todo)"></ion-checkbox>
       </ion-item-options>
       <ion-item-options side="end">
         <ion-item-option (click)="delete(todo)" color="danger">
