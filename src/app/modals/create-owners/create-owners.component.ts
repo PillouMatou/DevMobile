@@ -3,7 +3,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {List} from '../../models/list';
 import {ModalController} from '@ionic/angular';
 import {ListService} from '../../services/list.service';
-import {AngularFireAuth} from '@angular/fire/auth';
 
 @Component({
   selector: 'app-create-owners',
@@ -15,8 +14,7 @@ export class CreateOwnersComponent implements OnInit {
   @Input() list: List;
   private ownerForm: FormGroup;
 
-  constructor(private modalController: ModalController, private formBuilder: FormBuilder,
-              private listService: ListService, private firebaseAuth: AngularFireAuth) { }
+  constructor(private modalController: ModalController, private formBuilder: FormBuilder, private listService: ListService) { }
 
   ngOnInit() {
     this.ownerForm = this.formBuilder.group({
@@ -34,10 +32,9 @@ export class CreateOwnersComponent implements OnInit {
 
   share() {
     if (this.ownerForm.valid){
-      this.firebaseAuth.currentUser
-          .then(user => {
-            this.list.owners.push(this.ownerForm.get('email').value);
-          });
+      this.list.owners.push(this.ownerForm.get('email').value);
+      this.listService.addOwner(this.list);
+      this.dismissModal();
     }
   }
 }

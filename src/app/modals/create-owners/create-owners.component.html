@@ -12,11 +12,11 @@
       <ion-label position="floating">Email</ion-label>
       <ion-input type="email" name="email" formControlName="email"></ion-input>
     </ion-item>
-    <div color="danger" *ngIf="errorControl.email.touched && errorControl.email.errors?.required">
+    <ion-text color="danger" *ngIf="errorControl.email.touched && errorControl.email.errors?.required">
       <span>
         This field is required
       </span>
-    </div>
+    </ion-text>
     <ion-text color="danger" *ngIf="errorControl.email.touched && errorControl.email.errors?.email">
       <span>
         Please enter a valid email
