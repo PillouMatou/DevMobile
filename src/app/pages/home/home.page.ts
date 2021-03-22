@@ -34,9 +34,12 @@ export class HomePage implements OnInit {
     return await modal.present();
   }
 
-  async openCreateOwner(){
+  async openCreateOwner(l: List){
     const modal = await this.modalController.create({
       component: CreateOwnersComponent,
+      componentProps: {
+        list: l
+      },
     });
     return await modal.present();
   }
