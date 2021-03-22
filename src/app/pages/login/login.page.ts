@@ -12,12 +12,12 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  public login : FormGroup;
+  public login: FormGroup;
   public withEmail: boolean;
 
   constructor( private formBuilder: FormBuilder,
-    private toastController: ToastController, private route: Router,
-    private auth: AuthService) {
+               private toastController: ToastController, private route: Router,
+               private auth: AuthService) {
     this.withEmail = false;
     this.login = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -29,7 +29,7 @@ export class LoginPage {
   async loginForm(){
     if (this.login.valid) {
       try {
-        await this.auth.login(this.login.get('email').value, 
+        await this.auth.login(this.login.get('email').value,
         this.login.get('password').value);
         this.route.navigate(['home']);
       } catch (e) {
@@ -38,7 +38,7 @@ export class LoginPage {
           duration: 2000,
           message: e.message
         });
-  
+
         await toast.present();
       }
     }

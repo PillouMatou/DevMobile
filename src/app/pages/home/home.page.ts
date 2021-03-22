@@ -3,6 +3,7 @@ import { List } from '../../models/list';
 import { ListService } from '../../services/list.service';
 import { ModalController } from '@ionic/angular';
 import { CreateListComponent } from '../../modals/create-list/create-list.component';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -10,14 +11,19 @@ import { CreateListComponent } from '../../modals/create-list/create-list.compon
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  private lists: List[];
+  private lists: Observable<any>;
+  listsCollection: List;
 
   constructor(private listService: ListService, public modalController: ModalController) {
-    this.lists = [];
   }
 
   ngOnInit(){
     this.lists = this.listService.getAll();
+    this.lists.subscribe(
+        (list: List) => {this.listsCollection = list; },
+        () => {console.log('petit soucis dans la page home'); },
+        () => {console.log('fini'); }
+    );
   }
 
   async openCreateModal(){
