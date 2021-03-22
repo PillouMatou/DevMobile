@@ -43,7 +43,6 @@ export class ListDetailsPage implements OnInit {
 
   todoIsDoneChange(todo){
     todo.isDone = !todo.isDone;
-    console.log(todo.isDone);
     this.listService.addTodo(todo, this.listId);
   }
 
