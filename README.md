@@ -3,7 +3,7 @@ Vincent ARNONE & Sophie ROMANO
 # Projet DevMobile - M2 GI 2020-2021
 ## Application mobile TODO Liste
 
-[![checklist](/src/assets/checklist.jpg "image checklist")]
+![checklist](/src/assets/checklist.jpg "image checklist")
 
 ### Fonctionnalités implémentées
 * Création d'un compte avec adresse email
