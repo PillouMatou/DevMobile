@@ -1,7 +1,7 @@
 Vincent ARNONE & Sophie ROMANO
 
 # Projet DevMobile - M2 GI 2020-2021
-## TODO Liste
+## Application mobile TODO Liste
 
 ### Fonctionnalités implémentées
 * Création d'un compte avec adresse email
