@@ -52,7 +52,6 @@ export class ListService {
     await this.listsCollection.doc<List>(listId).collection<Todo>('todos').doc(todo.id).set({
       id: todo.id,
       name: todo.name,
-      description: todo.description,
       isDone: todo.isDone
     });
   }

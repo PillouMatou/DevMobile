@@ -3,8 +3,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ListService } from 'src/app/services/list.service';
 import { ModalController } from '@ionic/angular';
 import { Todo } from 'src/app/models/todo';
-import { ActivatedRoute } from '@angular/router';
-import {List} from '../../models/list';
 
 @Component({
   selector: 'app-create-todo',
@@ -31,7 +29,7 @@ ngOnInit(){
 
   createNewTodo(){
     if (this.newTodoForm.valid){
-      this.listService.addTodo(new Todo(this.newTodoForm.get('name').value, this.newTodoForm.get('description').value), this.listId);
+      this.listService.addTodo(new Todo(this.newTodoForm.get('name').value), this.listId);
       this.dismissModal();
     }
   }
