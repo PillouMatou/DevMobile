@@ -16,6 +16,7 @@ Vincent ARNONE & Sophie ROMANO
 * Cocher/décocher un TODO
 * Déconnexion
 * Bouton retour page précédente
+* Ajout d'une règle Firestore
 
 ### IHM
 * Changement couleur du thème (respect couleurs thème clair/sombre + couleurs basiques IHM, ex: rouge = fermer/erreur, vert = valider/succès)
