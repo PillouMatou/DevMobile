@@ -16,9 +16,10 @@
       *ngIf="register.invalid && register.get('password').touched && register.get('password').errors">
       <small *ngIf="register.get('password').errors.required">Ce champ est requis</small>
     </div>
-    <ion-button [disabled]="register.invalid" color="secondary" expand="block" shape="round" fill="outline"
+    <ion-button [disabled]="register.invalid" color="success" expand="block" fill="outline"
       type="submit" large>
-      Créer un compte
+      <ion-icon slot="start" name="checkmark-circle-outline"></ion-icon>
+      Valider
     </ion-button>
   </form>
 </ion-content>
