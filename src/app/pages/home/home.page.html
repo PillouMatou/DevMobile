@@ -14,13 +14,16 @@
         </ion-item>
 
         <ion-item-options side="end">
+          <ion-item-option (click)="openCreateOwner(list)">
+            <ion-icon slot="icon-only" name="person-add"></ion-icon>
+          </ion-item-option>
           <ion-item-option (click)="delete(list)" color="danger">
             <ion-icon slot="icon-only" name="trash"></ion-icon>
           </ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
     </ion-list>
-    <ion-button class="bottom-btn" expand="block" fill="outline" (click)="openCreateModal()">Add a new list
+    <ion-button color="bouton" class="bottom-btn" expand="block" fill="outline" (click)="openCreateModal()">Créer une nouvelle liste
     </ion-button>
   </div>
 </ion-content>

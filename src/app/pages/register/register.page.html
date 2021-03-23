@@ -1,24 +1,25 @@
 <ion-content>
   <form [formGroup]="register" (ngSubmit)="registerForm()">
     <ion-item>
-      <ion-label>Email</ion-label>
+      <ion-label>Adresse email</ion-label>
       <ion-input type="email" formControlName="email"></ion-input>
     </ion-item>
     <div class="text-danger" *ngIf="register.invalid && register.get('email').touched && register.get('email').errors">
-      <small *ngIf="register.get('email').errors.required">Field is required</small>
-      <small *ngIf="register.get('email').errors.email">Not a valid email</small>
+      <small *ngIf="register.get('email').errors.required">Ce champ est requis</small>
+      <small *ngIf="register.get('email').errors.email">L'adresse email n'est pas valide</small>
     </div>
     <ion-item>
-      <ion-label>Password</ion-label>
+      <ion-label>Mot de passe</ion-label>
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
     <div class="text-danger"
       *ngIf="register.invalid && register.get('password').touched && register.get('password').errors">
-      <small *ngIf="register.get('password').errors.required">Field is required</small>
+      <small *ngIf="register.get('password').errors.required">Ce champ est requis</small>
     </div>
-    <ion-button [disabled]="register.invalid" color="secondary" expand="block" shape="round" fill="outline"
+    <ion-button [disabled]="register.invalid" color="success" expand="block" fill="outline"
       type="submit" large>
-      Register
+      <ion-icon slot="start" name="checkmark-circle-outline"></ion-icon>
+      Valider
     </ion-button>
   </form>
 </ion-content>

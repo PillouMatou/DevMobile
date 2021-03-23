@@ -5,12 +5,9 @@
     <!-- Sliding item with text options on both sides -->
     <ion-item-sliding *ngFor="let todo of this.listsCollection.todos">
       <ion-item>
-        <ion-label>{{ todo.name }}</ion-label>
+        <ion-checkbox checked="{{todo.isDone}}" color="success" (ionChange)="todoIsDoneChange(todo)"></ion-checkbox>
+        <ion-label>&nbsp;&nbsp;{{ todo.name }}</ion-label>
       </ion-item>
-
-      <ion-item-options side="start">
-        <ion-checkbox checked="false" color="success"></ion-checkbox>
-      </ion-item-options>
       <ion-item-options side="end">
         <ion-item-option (click)="delete(todo)" color="danger">
           <ion-icon slot="icon-only" name="trash"></ion-icon>
@@ -18,7 +15,7 @@
       </ion-item-options>
     </ion-item-sliding>
     </ion-list>
-  <ion-button class="bottom-btn" expand="block" fill="outline" (click)="openCreateModal()">Add a new todo</ion-button>
+  <ion-button color="bouton" class="bottom-btn" expand="block" fill="outline" (click)="openCreateModal()">Ajouter un TODO</ion-button>
 </ion-content>
 </ion-content>
 <ng-template #loading></ng-template>
