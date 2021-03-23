@@ -32,7 +32,6 @@ ngOnInit(){
   createNewTodo(){
     if (this.newTodoForm.valid){
       this.listService.addTodo(new Todo(this.newTodoForm.get('name').value, this.newTodoForm.get('description').value), this.listId);
-      console.log('list todo', this.newTodoForm.get('description').value);
       this.dismissModal();
     }
   }

@@ -13,6 +13,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { SharedModule } from './shared/shared.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { SharedModule } from './shared/shared.module';
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
     SharedModule,
+    CommonModule,
     IonicModule.forRoot(), AppRoutingModule],
   providers: [
     StatusBar,

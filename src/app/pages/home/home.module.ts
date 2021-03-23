@@ -7,6 +7,7 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { CreateListComponent } from '../../modals/create-list/create-list.component';
 import { HeaderComponent } from '../../shared/components/header/header.component';
+import {CreateOwnersComponent} from '../../modals/create-owners/create-owners.component';
 
 
 @NgModule({
@@ -19,6 +20,6 @@ import { HeaderComponent } from '../../shared/components/header/header.component
     ReactiveFormsModule
   ],
   entryComponents: [HeaderComponent],
-  declarations: [HomePage, CreateListComponent]
+  declarations: [HomePage, CreateListComponent, CreateOwnersComponent]
 })
 export class HomePageModule {}
