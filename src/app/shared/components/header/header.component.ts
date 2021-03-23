@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   public title: string;
   public user: firebase.default.User;
 
-  private route: Observable<import('D:/Documents/School/M2GI/Dev_Mobile/DevMobile/node_modules/@angular/router/router').Event>;
+  private route: Observable<import('node_modules/@angular/router/router').Event>;
 
   constructor(private auth: AuthService , private router: Router, private listService: ListService) {
     this.route = this.router.events.pipe(filter(event => event instanceof NavigationEnd));
