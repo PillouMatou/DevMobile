@@ -1,6 +1,9 @@
 <ion-content class="ion-text-center">
-  <section class="ion-margin-vertical">
-    <ion-button color="dark" expand="block" shape="round" fill="outline" large (click)="withEmail = !withEmail">
+  <ion-card>
+    <ion-img src="/assets/checklist.jpg"></ion-img>
+  </ion-card>
+    <section class="ion-margin-vertical">
+    <ion-button size="large" color="dark" expand="block" fill="outline" large (click)="withEmail = !withEmail">
       <ion-icon slot="start" name="mail"></ion-icon>
       Avec une adresse email
     </ion-button>
@@ -23,7 +26,7 @@
         <div class="text-danger" *ngIf="login.invalid && login.get('password').touched && login.get('password').errors">
           <small *ngIf="login.get('password').errors.required">Ce champ est requis</small>
         </div>
-        <ion-button color="secondary" expand="block" shape="round" fill="outline" type="submit" large
+        <ion-button color="success" expand="block" fill="outline" type="submit" large
           [disabled]="login.invalid">
           <ion-icon slot="start" name="checkmark-circle-outline"></ion-icon>
           Valider
@@ -34,8 +37,9 @@
 
   <section class="ion-margin-vertical">
     <ion-label>Pas encore de compte ?</ion-label>
-    <ion-button color="secondary" expand="block" shape="round" fill="outline" type="submit" large
+    <ion-button color="medium" expand="block" fill="outline" type="submit" large
                 [routerLink]="['/register']">
+      <ion-icon name="person-outline"></ion-icon>
       Créer un compte
     </ion-button>
   </section>
