@@ -7,7 +7,13 @@
       <ion-back-button *ngIf="title=='Créer un compte'" defaultHref="login"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button *ngIf="title!='Créer un compte'" color="secondary" (click)="loginOrOut()">
+      <ion-button *ngIf="title=='Détails liste'" color="secondary" (click)="loginOrOut()">
+        <ion-icon slot="icon-only" [name]="user ? 'person-remove-outline' : 'person-outline'"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="title=='Mot de passe oublié'" color="secondary" (click)="loginOrOut()">
+        <ion-icon slot="icon-only" [name]="user ? 'person-remove-outline' : 'person-outline'"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="title=='Listes'" color="secondary" (click)="loginOrOut()">
         <ion-icon slot="icon-only" [name]="user ? 'person-remove-outline' : 'person-outline'"></ion-icon>
       </ion-button>
     </ion-buttons>
