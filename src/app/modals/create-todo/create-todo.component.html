@@ -1,39 +1,30 @@
 <ion-header translucent>
   <ion-toolbar>
-    <ion-title>Modal Content</ion-title>
+    <ion-title color="secondary">Ajouter un TODO</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="dismissModal()">Close</ion-button>
+      <ion-button color="danger" (click)="dismissModal()">Fermer</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content fullscreen>
   <form [formGroup]="newTodoForm" (ngSubmit)="createNewTodo()" novalidate>
     <ion-item lines="full">
-      <ion-label position="floating">Name</ion-label>
+      <ion-label position="floating">Nom</ion-label>
       <ion-input type="text" name="name" formControlName="name" required></ion-input>
     </ion-item>
     <ion-text color="danger" *ngIf="errorControl.name.touched && errorControl.name.errors?.required">
       <span>
-        This field is required
+        Ce champ est requis
       </span>
     </ion-text>
     <ion-text color="danger" *ngIf="errorControl.name.touched && errorControl.name.errors?.minlength">
       <span>
-        Minimum length 2
-      </span>
-    </ion-text>
-    <ion-item lines="full">
-      <ion-label position="floating">Description</ion-label>
-      <ion-textarea name="description" formControlName="description"></ion-textarea>
-    </ion-item>
-    <ion-text color="danger" *ngIf="errorControl.description.touched && errorControl.description.errors?.maxlength">
-      <span>
-        Maximum length 255
+        Taille minimum de 2 caractères requise
       </span>
     </ion-text>
     <ion-row>
       <ion-col>
-        <ion-button [disabled]="newTodoForm.invalid" type="submit" color="primary" expand="block">Submit</ion-button>
+        <ion-button [disabled]="newTodoForm.invalid" type="submit" color="success" expand="block" fill="outline">Valider</ion-button>
       </ion-col>
     </ion-row>
   </form>

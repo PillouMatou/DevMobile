@@ -74,6 +74,17 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  --ion-color-bouton: #73C6B6;
+  --ion-color-listitle: #8bc34a;
+}
+
+.ion-color-bouton {
+  --ion-color-base: var(--ion-color-bouton);
+}
+
+.ion-color-listitle {
+  --ion-color-base: var(--ion-color-listitle);
 }
 
 @media (prefers-color-scheme: dark) {

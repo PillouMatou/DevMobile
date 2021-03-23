@@ -31,7 +31,7 @@ export class RegisterPage {
        const toast = await this.toastController.create({
             color: 'success',
             duration: 5000,
-            message: `User created, an email confirmation as been sent to ${user.email}`
+            message: `Un email de confirmation a été envoyé à ${user.email}`
           });
     
           await toast.present();

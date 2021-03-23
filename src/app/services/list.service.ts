@@ -38,6 +38,11 @@ export class ListService {
     console.log('id list', list.id);
   }
 
+  async addOwner(list: List){
+    await this.listsCollection.doc(list.id).update({owners: list.owners});
+    console.log('id list', list.id);
+  }
+
   async delete(list){
     await this.listsCollection.doc<List>(list.id).delete();
   }
@@ -47,7 +52,6 @@ export class ListService {
     await this.listsCollection.doc<List>(listId).collection<Todo>('todos').doc(todo.id).set({
       id: todo.id,
       name: todo.name,
-      description: todo.description,
       isDone: todo.isDone
     });
   }
